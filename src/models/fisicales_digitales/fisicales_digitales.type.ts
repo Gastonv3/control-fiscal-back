@@ -8,6 +8,7 @@ export interface IFiscalesDigitales {
   id_usuario_fiscal_digital: number;
   nombre_fiscal_digital: string;
   user_asignado: string;
+  pass_asignado: string;
   mesa_numero: number;
   id_escuela: number;
   nombre_escuela: string;
@@ -84,4 +85,5 @@ export interface IFiscalesDigitalesEstadoAsistenciaUpdate {
   id_fiscal_digital: number;
   estado_asistencia: "S" | "N";
   id_usuario_asistencia: number;
+  id_usuario_asignado: number;
 }

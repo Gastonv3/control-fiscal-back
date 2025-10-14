@@ -61,6 +61,11 @@ const buildWhereClause = (filter: IFiscalesGeneralesFilter): IQueryFilter => {
   const where: string[] = [];
   const values: any[] = [];
 
+  if (filter.id_usuario !== undefined) {
+    where.push("fg.id_usuario = ?");
+    values.push(filter.id_usuario);
+  }
+
   if (filter.id_fiscal_general !== undefined) {
     where.push("fg.id_fiscal_general = ?");
     values.push(filter.id_fiscal_general);

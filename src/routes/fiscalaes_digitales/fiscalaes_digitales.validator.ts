@@ -152,6 +152,11 @@ export default class FiscalesDigitalesValidator {
         .isInt()
         .withMessage("Debe ser un número entero")
         .toInt(),
+      body("id_usuario_asignado")
+        .notEmpty()
+        .isInt()
+        .withMessage("Debe ser un número entero")
+        .toInt(),
       body("estado_asistencia")
         .optional()
         .isIn(["S", "N"])

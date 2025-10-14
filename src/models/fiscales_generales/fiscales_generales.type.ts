@@ -24,6 +24,7 @@ export interface IFiscalesGenerales {
 
 export interface IFiscalesGeneralesFilter extends IPaginationFilter {
   id_fiscal_general?: number;
+  id_usuario?: number;
   dni?: number;
   nombre_usuario_asignado?: string;
   id_escuela?: number;

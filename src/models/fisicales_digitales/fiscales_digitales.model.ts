@@ -18,6 +18,7 @@ SELECT fd.id_fiscal_digital,
        fd.id_usuario AS id_usuario_fiscal_digital,
        ud.nombre     AS nombre_fiscal_digital,
        ud.user       AS user_asignado,
+       ud.pass       AS pass_asignado,
        fd.mesa_numero,
        fg.id_escuela,
        s.nombre      AS nombre_escuela,
@@ -248,6 +249,29 @@ export const updateFiscalDigitalEstadoAsistencia = async (
 
     if (result.affectedRows === 0) {
       throw new Error("No se pudo actualizar el fiscal digital");
+    }
+
+    let fields: string[] = [];
+    let values2: any[] = [];
+
+    if (data.estado_asistencia !== undefined) {
+      fields.push("habilitado = ?");
+      values2.push(data.estado_asistencia);
+    }
+
+    const updateUserSQL = `UPDATE usuarios SET ${fields.join(
+      ", "
+    )} WHERE id_usuario = ?`;
+    values2.push(data.id_usuario_asignado);
+
+    const [resultUsuario] = await conn.query<ResultSetHeader>(
+      updateUserSQL,
+      values2
+    );
+    if (resultUsuario.affectedRows === 0) {
+      throw new Error(
+        "No se pudo actualizar el usuario asignado al fiscal digital"
+      );
     }
 
     const [rows] = await conn.query<RowDataPacket[]>(

@@ -3,7 +3,14 @@ import { ValidationChain, check, body } from "express-validator";
 export default class FiscalesGeneralesValidator {
   public static listar(): ValidationChain[] {
     return [
-      check(["id_fiscal_general", "id_escuela", "dni", "offset", "limit"])
+      check([
+        "id_fiscal_general",
+        "id_usuario",
+        "id_escuela",
+        "dni",
+        "offset",
+        "limit",
+      ])
         .optional()
         .isInt()
         .withMessage("Debe ser un número entero")
