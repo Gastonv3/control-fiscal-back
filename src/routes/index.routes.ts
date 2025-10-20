@@ -92,7 +92,7 @@ export class IndexRoutes {
     );
 
     this.router.use(
-      "/cargo_dirigentes",
+      "/cargo-dirigentes",
       verificarToken,
       new CargoDirigentesRoutes().router
     );
