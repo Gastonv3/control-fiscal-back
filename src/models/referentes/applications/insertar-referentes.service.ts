@@ -24,28 +24,6 @@ export class InsertarReferenteService {
         };
       }
 
-      // const zonas = this.parseZona(data.zona_referente, referente.id_referente);
-
-      // if (zonas.length == 0) {
-      //   await connection.rollback();
-      //   return {
-      //     status: 422,
-      //     message: "No se pudo insertar las zonas del Dirigente",
-      //     error: "Sin filas afectadas",
-      //   };
-      // }
-
-      // for (const zona of zonas) {
-      //   const result = await insertReferenteZona(zona, connection);
-      //   if (!result) {
-      //     await connection.rollback();
-      //     return {
-      //       status: 422,
-      //       message: "No se pudo insertar la zona del Dirigente",
-      //       error: "Sin filas afectadas",
-      //     };
-      //   }
-      // }
       if (data.barrio_referente.length > 0) {
         const barrios = this.parseBarrio(
           data.barrio_referente,
@@ -97,23 +75,6 @@ export class InsertarReferenteService {
       connection.release();
     }
   }
-
-  // public parseZona(
-  //   zona: IReferenteteParamInsertar["zona_referente"],
-  //   id_referente: number
-  // ): IReferenteZonaInsert[] {
-  //   const listado: IReferenteZonaInsert[] = [];
-  //   if (zona && zona.length > 0) {
-  //     zona.forEach((item) => {
-  //       listado.push({
-  //         id_zona: item.id_zona,
-  //         id_usuario: item.id_usuario,
-  //         id_referente: id_referente,
-  //       });
-  //     });
-  //   }
-  //   return listado;
-  // }
 
   public parseBarrio(
     barrio: IReferenteteParamInsertar["barrio_referente"],

@@ -47,6 +47,8 @@ export class InsertarFiscalesDigitalesService {
         message: "Error al insertar fiscal digital",
         error,
       };
+    } finally {
+      connection.release();
     }
   }
 }

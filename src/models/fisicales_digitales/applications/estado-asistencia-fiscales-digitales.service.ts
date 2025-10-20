@@ -42,6 +42,8 @@ export class EstadoAsistenciaFiscalesDigitalesService {
         message: "Error al actualizar estado de asistencia del fiscal digital",
         error,
       };
+    } finally {
+      connection.release();
     }
   }
 }

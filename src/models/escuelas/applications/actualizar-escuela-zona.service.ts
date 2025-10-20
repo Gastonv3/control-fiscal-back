@@ -50,6 +50,8 @@ export class ActualizarEscuelaZonaService {
         message: "Error al actualizar la escuela",
         error,
       };
+    } finally {
+      connection.release();
     }
   }
 }

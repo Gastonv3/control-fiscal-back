@@ -46,6 +46,8 @@ export class InsertarFiscalGeneralService {
         message: "Error al insertar fiscal general",
         error,
       };
+    } finally {
+      connection.release();
     }
   }
 }

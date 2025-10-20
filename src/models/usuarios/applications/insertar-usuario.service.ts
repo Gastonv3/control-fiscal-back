@@ -45,6 +45,8 @@ export class InsertarUsuarioService {
         message: "Error al insertar fiscal general",
         error,
       };
+    } finally {
+      connection.release();
     }
   }
 }

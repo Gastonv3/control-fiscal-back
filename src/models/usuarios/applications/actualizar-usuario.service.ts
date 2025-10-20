@@ -50,6 +50,8 @@ export class ActualizarUsuarioService {
         message: "Error al actualizar usuario",
         error,
       };
+    } finally {
+      connection.release();
     }
   }
 }

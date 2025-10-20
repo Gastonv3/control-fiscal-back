@@ -47,6 +47,8 @@ export class ActualizarFiscalGeneralService {
         message: "Error al actualizar fiscal general",
         error,
       };
+    } finally {
+      connection.release();
     }
   }
 }

@@ -47,6 +47,8 @@ export class ActualizarFiscalesDigitalesService {
         message: "Error al actualizar fiscal digital",
         error,
       };
+    } finally {
+      connection.release();
     }
   }
 }
