@@ -31,6 +31,7 @@ export default class obtenerMenuAppService {
           if (element.typeId === 1) {
             const hijos = await getMenuApp({
               father_id: element.id,
+              role_id: filter.role_id,
             });
             items.children = hijos || [];
             menuParse.push(items);
